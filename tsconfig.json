@@ -20,6 +20,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["src", "sonarqube-scanner.js"],
+  "include": ["src", "sonarqube-scanner.js", "/**/*.ts"],
   "exclude": ["node_modules"]
 }

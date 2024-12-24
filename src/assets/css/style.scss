@@ -96,3 +96,19 @@ p {
     transform: rotate(360deg);
   }
 }
+
+#my-input {
+  table {
+    svg {
+      cursor: pointer;
+      margin-left: 07px;
+      &:nth-child(1) {
+        color: blue;
+      }
+      &:nth-child(2) {
+        color: red;
+      }
+    }
+    font-size: 14px;
+  }
+}

@@ -18,6 +18,7 @@ const CustomAxios = (url: any) => {
       let ids = document.getElementById("loading");
       if (ids) {
         ids.classList.add("shows");
+        document.body.classList.remove("body-blur");
       }
       return Promise.reject(error);
     }
@@ -35,6 +36,7 @@ const CustomAxios = (url: any) => {
       let ids = document.getElementById("loading");
       if (ids) {
         ids.classList.add("shows");
+        document.body.classList.remove("body-blur");
       }
       return Promise.reject(error);
     }
