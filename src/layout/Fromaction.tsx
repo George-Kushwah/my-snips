@@ -1,3 +1,5 @@
+"use server";
+
 const wait = (delay: any) => {
   return new Promise((res) => setTimeout(res, delay));
 };
@@ -10,23 +12,35 @@ export const Fromaction: any = async (prevSate: any, fromData: any) => {
   } else return { mess: "my name is wrong" };
 };
 
+export const sendData = (ev: any) => {
+  let d = new Promise((res) => {
+    setTimeout(() => {
+      res(ev);
+    }, 2000);
+  });
+  return d;
+};
+
 export const Fromactiontest: any = async (prevSate: unknown, formData: any) => {
   const sname: any = Object.fromEntries(formData);
   if (sname?.fname === "" && sname?.city === "" && sname?.mob === "") {
-    return { error: "All feilds are Require" };
-  }
-  if (sname?.fname === "") {
-    return { error: "Name feilds are Require", sname };
+    return {
+      error: {
+        fname: "Name feilds are Require",
+        city: "City feilds are Require",
+        mob: "Mobile feilds are Require",
+      },
+    };
   }
   if (sname?.city === "") {
-    return { error: "City feilds are Require", sname };
+    return { error: { city: "City feilds are Require" } };
   }
   if (sname?.mob === "") {
-    return { error: "Mobile feilds are Require", sname };
+    return {
+      error: { mob: "Mobile feilds are Require" },
+    };
   } else {
+    //let dc = await sendData(sname);
     return { sname };
   }
-  // if (sname) {
-  //   return { mess: "my name is " + sname };
-  // } else return { mess: "my name is wrong" };
 };

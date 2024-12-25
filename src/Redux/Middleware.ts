@@ -6,6 +6,7 @@ export default function* Mysaga() {
   try {
     yield takeEvery(actions.load.type, LoadData);
     yield takeEvery(actions.dbtestload.type, MydbloadData);
+    yield takeEvery(actions.dbinsertload.type, DBInsertData);
   } catch {
     yield;
   }
@@ -28,6 +29,18 @@ function* MydbloadData(): any {
     let urls: any = CustomAxios("http://localhost:4500/");
     const getData: any = yield call(() => urls.get("myvalue"));
     yield put(actions.dbtestsucc(getData.data ?? []));
+  } catch (err: any) {
+    yield put(actions.error(err.toJSON().message));
+  }
+}
+
+function* DBInsertData(data: any): any {
+  try {
+    console.log(data);
+    let urls: any = CustomAxios("http://localhost:4500/");
+    const getData: any = yield call(() => urls.put("saveVal", data?.payload));
+
+    yield put(actions.dbinsertsucc(getData ?? []));
   } catch (err: any) {
     yield put(actions.error(err.toJSON().message));
   }

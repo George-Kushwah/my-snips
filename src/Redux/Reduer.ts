@@ -7,6 +7,8 @@ export interface Apidata {
   data: any[];
   dbtestload: boolean;
   dbtestsucc: any[];
+  dbinsertDataload: boolean;
+  dbinsertDatasucc: any[];
 }
 const initialState: Apidata = {
   err: "",
@@ -14,6 +16,8 @@ const initialState: Apidata = {
   data: [],
   dbtestload: false,
   dbtestsucc: [],
+  dbinsertDataload: false,
+  dbinsertDatasucc: [],
 };
 
 export const myReucerdata = createSlice({
@@ -39,8 +43,23 @@ export const myReucerdata = createSlice({
       state.dbtestload = false;
       state.dbtestsucc = action.payload;
     },
+    dbinsertload: (state) => {
+      state.dbinsertDataload = true;
+      state.dbinsertDatasucc = [];
+    },
+    dbinsertsucc: (state, action: PayloadAction<any>) => {
+      state.dbinsertDataload = false;
+      state.dbinsertDatasucc = action.payload;
+    },
   },
 });
-export const { error, load, getData, dbtestload, dbtestsucc } =
-  myReucerdata.actions;
+export const {
+  error,
+  load,
+  getData,
+  dbtestload,
+  dbtestsucc,
+  dbinsertload,
+  dbinsertsucc,
+} = myReucerdata.actions;
 export default myReucerdata.reducer;
