@@ -10,7 +10,7 @@ scanner(
       "sonar.projectDescription": 'Description for "My App" project...',
       "sonar.sources": "./src",
       "sonar.exclusions": "./src/Redux/*.tsx,./src/__test__/*.tsx",
-      "sonar.tests": "./src",
+      "sonar.tests": "./src/__test__",
       "sonar.test.inclusions": "**/*.test.tsx,**/*.test.ts",
       "sonar.typescript.lcov.reportPaths": "coverage/lcov.info",
       "sonar.testExecutionReportPaths": "test-report.xml",
