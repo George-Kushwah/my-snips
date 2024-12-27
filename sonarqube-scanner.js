@@ -2,11 +2,11 @@ const scanner = require("sonarqube-scanner").default;
 scanner(
   {
     serverUrl: "http://localhost:9000",
-    token: "squ_844c9365abd5379ea02e988eaa24e6e05eff2c9d",
+    token: "squ_5547d14ade24d774d3614bdff93ca1f1b0165e0d",
     login: "admin",
     password: "Admin",
     options: {
-      "sonar.projectName": "My-Test",
+      "sonar.projectName": "React-app",
       "sonar.projectDescription": 'Description for "My App" project...',
       "sonar.sources": "./src",
       "sonar.exclusions": "./src/Redux/*.tsx,./src/__test__/*.tsx",
