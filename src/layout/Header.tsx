@@ -59,6 +59,14 @@ const Header = () => {
               </li>
             );
           })}
+                <li>
+            <NavLink
+              to="New-tech"
+              className={({ isActive }) => `${isActive ? "active" : ""}`}
+            >
+         New Tech
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>

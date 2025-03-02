@@ -19,7 +19,12 @@ import Hooks from "./layout/Hooks";
 import Propstypes from "./layout/Props-type";
 import { Provider } from "react-redux";
 import { store } from "./Redux/Store";
-
+import Allth from "./layout/All-the"
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+const queryClient = new QueryClient()
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
@@ -29,6 +34,7 @@ const router = createBrowserRouter(
       <Route path="hooks" element={<Hooks />} />
       <Route path="props" element={<Propstypes />} />
       <Route path="User/:idname" loader={Datas} element={<Drop />} />
+      <Route path="New-tech" element={<Allth />} />
     </Route>
   )
 );
@@ -37,10 +43,14 @@ const rootEl = document.getElementById("root") as HTMLElement;
 if (rootEl) {
   const root = ReactDOM.createRoot(rootEl);
   root.render(
+  
     <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
       <React.StrictMode>
         <RouterProvider router={router}></RouterProvider>
-      </React.StrictMode>
-    </Provider>
+        </React.StrictMode>
+        </QueryClientProvider>
+      </Provider>
+    
   );
 }

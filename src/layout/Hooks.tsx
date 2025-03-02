@@ -52,7 +52,7 @@ function Hooks() {
     <>
       <div className="contaier-fluid mt-3 p-2">
         <h4>React Hooks</h4>
-        {data.map((item: any, ind: any) => {
+        {/* {data.map((item: any, ind: any) => {
           return (
             <p
               key={ind}
@@ -62,11 +62,11 @@ function Hooks() {
               {item} {ab}
             </p>
           );
-        })}
-        {ispendding && <>Loading.....</>}
-        <button type="button" onClick={adds} className="btn btn-danger">
+        })}*/}
+       {ispendding && <>Loading.....</>}
+          {/* <button type="button" onClick={adds} className="btn btn-danger">
           Click Me add
-        </button>
+        </button>  */}
         <button
           type="button"
           onClick={() => setab(ab + 1)}
@@ -74,32 +74,33 @@ function Hooks() {
         >
           Click Me add
         </button>
-        <button
+        {/* <button
           type="button"
           onClick={() => refs.current.func1()}
           className="btn btn-danger"
         >
           Child Hook function call
-        </button>
+        </button> */}
       </div>
-      <Adding />
+      {/* <Adding />
       <Hooks1 />
-      <Hooks2 refs={refs} />
+      <Hooks2 refs={refs} /> */}
+      {/* <Hooks1 /> */}
       <>
-        <input
+        {/* <input
           type="text"
           className="col-md-2"
           onChange={(e: any) => setquery(e.target.value)}
           name={query}
           value={query}
-        />
+        /> */}
       </>
-      <Suspense fallback={<h3>Loading...</h3>}>
+      {/* <Suspense fallback={<h3>Loading...</h3>}>
         <Hooks3 search={query} />
-      </Suspense>
-      <Hook4 />
-      <Hooks5 />
-      <Hooks6 counts={calls} />
+      </Suspense> */}
+     <Hook4 />
+      {/* <Hooks5 />
+       <Hooks6 counts={calls} /> */}
     </>
   );
 }

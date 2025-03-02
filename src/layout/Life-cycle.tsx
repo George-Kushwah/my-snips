@@ -13,12 +13,20 @@ const Lifecycle = () => {
   //   console.log("Mounting Calling");
   // }, [incr]);
   //deleteing component
-  // useEffect(() => {
-  //   console.log("will mount-1");
-  //   return () => {
-  //     console.log("unmounting component-2");
-  //   };
-  // }, []);
+  const resize=()=> {
+    console.log(window.innerWidth)
+  }
+  useEffect(() => {
+    console.log("will mount-1");
+    window.addEventListener("resize",resize)
+   
+
+    return () => {
+      console.log("unmounting component-2");
+      window.removeEventListener("resize",resize)
+    };
+  });
+  
   return (
     <>
       <div className="container-fluid mt-2">
@@ -31,7 +39,7 @@ const Lifecycle = () => {
         </button>
         :{incr}
       </div>
-      <Lifecycle2 />
+      {/* <Lifecycle2 /> */}
       {/* <global.provider value={{ colname: green }}>
         <Lifecycle2 />
       </global.provider> */}

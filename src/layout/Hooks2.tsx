@@ -26,6 +26,7 @@ const Hooks2 = ({ refs }: IHookref) => {
         >
           Click here child hooks
         </button>
+        {/* <input type="text" ref={refs}></input> */}
       </div>
     </>
   );
