@@ -12,6 +12,7 @@ const CustomAxios = (url: any) => {
         ids.classList.remove("shows");
         document.body.classList.add("body-blur");
       }
+      //request.headers.channel="My channel"
       return request;
     },
     (error) => {
@@ -30,6 +31,8 @@ const CustomAxios = (url: any) => {
         ids.classList.add("shows");
         document.body.classList.remove("body-blur");
       }
+      //Object.assign(response, { data: { list: { data: response.data } } })
+      console.log(response)
       return response;
     },
     (error) => {

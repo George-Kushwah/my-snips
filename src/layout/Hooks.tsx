@@ -82,25 +82,27 @@ function Hooks() {
           Child Hook function call
         </button> */}
       </div>
+      <Hooks2 refs={refs} />
       {/* <Adding />
       <Hooks1 />
       <Hooks2 refs={refs} /> */}
       {/* <Hooks1 /> */}
       <>
-        {/* <input
+        <input
           type="text"
           className="col-md-2"
           onChange={(e: any) => setquery(e.target.value)}
           name={query}
           value={query}
-        /> */}
+        />
       </>
+      <Hooks3 search={query} />
       {/* <Suspense fallback={<h3>Loading...</h3>}>
         <Hooks3 search={query} />
       </Suspense> */}
      <Hook4 />
-      {/* <Hooks5 />
-       <Hooks6 counts={calls} /> */}
+      <Hooks5 />
+       <Hooks6 counts={calls} />
     </>
   );
 }
