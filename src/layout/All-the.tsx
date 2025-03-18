@@ -2,8 +2,10 @@ import React,{useState,useEffect} from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeLowVision } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
+import { count } from 'console';
 const Allth = () => {
     const [inputval, setInputval] = useState<any>("")
+    const [table,setTable]=useState<any>(0)
     const [show, setShow] = useState<boolean>(false)
     const [ValueArr,setValueArr]=useState<any>(["Apple","Mango","Grapes","Oragne"])
     let dc=1
@@ -29,8 +31,9 @@ const Allth = () => {
     const Shuffleval = () => {
         let dc:any = [...ValueArr].sort(() => Math.random() - 0.6)
         setValueArr(dc)
-       
-    
+    }
+    const printTables = () => {
+        
     }
 
   return (
@@ -43,6 +46,11 @@ const Allth = () => {
                       return <p key={ind}>{item }</p>
                   })}
                   <button type='button' onClick={Shuffleval} className='btn btn-primary'>Change Order</button>
+                  <input type='text' value={table} onChange={(e) => setTable(e.target.value)}></input>
+                  <button type='button' onClick={printTables} className='btn btn-primary'>Print Table</button>
+                  {table!=0 ? [...Array(10)].map((item: any, ind: any) => {
+                      return (<p key={ind}>{ table*++ind}</p>)
+                  }):""}
               </div>
           </div>
           
