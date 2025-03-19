@@ -1,6 +1,5 @@
-import React from "react";
+import React,{lazy,} from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import "./assets/css/style.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
@@ -11,19 +10,23 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import Lifecycle from "./layout/Life-cycle";
-import Home from "./layout/Home";
-import Drop, { Datas } from "./layout/Drop";
-import Hoc from "./layout/Hoc";
-import Hooks from "./layout/Hooks";
-import Propstypes from "./layout/Props-type";
+
 import { Provider } from "react-redux";
 import { store } from "./Redux/Store";
-import Allth from "./layout/All-the"
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import { Datas } from "./layout/Drops1-query";
+const Drop =  lazy(() => import("./layout/Drop"));
+const App =  lazy(() => import("./App"));
+const Lifecycle =  lazy(() => import("./layout/Life-cycle"));
+const Home =  lazy(() => import("./layout/Home"));
+const Hoc = lazy(() => import("./layout/Hoc"));
+const Hooks = lazy(() => import("./layout/Hooks"));
+const Propstypes =  lazy(() => import("./layout/Props-type"));
+const Allth =  lazy(() => import("./layout/All-the"));
+const Allskills=lazy(()=>import("./layout/All-skills"));
 const queryClient = new QueryClient()
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -35,6 +38,7 @@ const router = createBrowserRouter(
       <Route path="props" element={<Propstypes />} />
       <Route path="User/:idname" loader={Datas} element={<Drop />} />
       <Route path="New-tech" element={<Allth />} />
+      <Route path="New-skills" element={<Allskills />} />
     </Route>
   )
 );

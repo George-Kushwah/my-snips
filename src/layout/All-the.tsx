@@ -2,11 +2,12 @@ import React,{useState,useEffect} from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEyeLowVision } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
-import { count } from 'console';
 const Allth = () => {
     const [inputval, setInputval] = useState<any>("")
     const [table,setTable]=useState<any>(0)
     const [show, setShow] = useState<boolean>(false)
+    const [vals, setvals] = useState<any>(0)
+    const [btnn,setbtnn]=useState<boolean>(false)
     const [ValueArr,setValueArr]=useState<any>(["Apple","Mango","Grapes","Oragne"])
     let dc=1
     const ViewPassword = () => {
@@ -35,6 +36,14 @@ const Allth = () => {
     const printTables = () => {
         
     }
+    useEffect(() => {
+        if (btnn) {
+            let ids = setInterval(() => setvals((prev: any) => prev + 1),1000)
+        return ()=>{
+            clearInterval(ids)
+        }
+}
+    })
 
   return (
     <div className='container-fluid'>
@@ -50,7 +59,11 @@ const Allth = () => {
                   <button type='button' onClick={printTables} className='btn btn-primary'>Print Table</button>
                   {table!=0 ? [...Array(10)].map((item: any, ind: any) => {
                       return (<p key={ind}>{ table*++ind}</p>)
-                  }):""}
+                  }) : ""}
+                  <br></br><br></br>
+                  {vals}<br></br>
+                  <button type='button' onClick={()=>setbtnn(true)}>Start</button>
+                  <button type='button' onClick={() => setbtnn(false)} >Stop</button>
               </div>
           </div>
           

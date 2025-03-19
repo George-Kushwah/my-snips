@@ -67,6 +67,14 @@ const Header = () => {
          New Tech
             </NavLink>
           </li>
+          <li>
+          <NavLink
+              to="New-skills"
+              className={({ isActive }) => `${isActive ? "active" : ""}`}
+            >
+         New Skills
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>
