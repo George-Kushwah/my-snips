@@ -32,7 +32,7 @@ const CustomAxios = (url: any) => {
         document.body.classList.remove("body-blur");
       }
       //Object.assign(response, { data: { list: { data: response.data } } })
-      console.log(response)
+      //  console.log(response)
       return response;
     },
     (error) => {
