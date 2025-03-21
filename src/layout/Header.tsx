@@ -59,20 +59,28 @@ const Header = () => {
               </li>
             );
           })}
-                <li>
+          <li>
             <NavLink
               to="New-tech"
               className={({ isActive }) => `${isActive ? "active" : ""}`}
             >
-         New Tech
+              New Tech
             </NavLink>
           </li>
           <li>
-          <NavLink
+            <NavLink
               to="New-skills"
               className={({ isActive }) => `${isActive ? "active" : ""}`}
             >
-         New Skills
+              New Skills
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="Memo"
+              className={({ isActive }) => `${isActive ? "active" : ""}`}
+            >
+              Use Memo
             </NavLink>
           </li>
         </ul>
