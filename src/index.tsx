@@ -25,6 +25,7 @@ const Propstypes = lazy(() => import("./layout/Props-type"));
 const Allth = lazy(() => import("./layout/All-the"));
 const Allskills = lazy(() => import("./layout/All-skills"));
 const UseMemo = lazy(() => import("./layout/Usememo"));
+const Part1 = lazy(() => import("./layout/All-Lpart-1"));
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,6 +39,7 @@ const router = createBrowserRouter(
       <Route path="New-tech" element={<Allth />} />
       <Route path="New-skills" element={<Allskills />} />
       <Route path="Memo" element={<UseMemo />} />
+      <Route path="Logic-Part-1" element={<Part1 />} />
     </Route>
   )
 );

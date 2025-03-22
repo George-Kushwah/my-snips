@@ -83,6 +83,14 @@ const Header = () => {
               Use Memo
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="Logic-Part-1"
+              className={({ isActive }) => `${isActive ? "active" : ""}`}
+            >
+              Logic Part-1
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>

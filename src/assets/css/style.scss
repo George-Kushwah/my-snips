@@ -130,3 +130,18 @@ p {
     color: blue;
   }
 }
+.my-form-1 {
+  div {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 07px;
+  }
+  input[type="text"] {
+    margin-right: 9px;
+    width: 75% !important;
+    border: 1px #000 solid;
+  }
+  button {
+    margin-right: 07px;
+  }
+}
