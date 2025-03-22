@@ -3,7 +3,7 @@ import Tableprint from "./Table-print";
 import ALLLpartstart from "./ALL-Lpart-start";
 
 export default function AllLart1() {
-  const [adds, setadds] = useState<any>(0);
+  // const [adds, setadds] = useState<any>(0);
   const [vals, setVals] = useState<any>([{ value: "" }]);
   const [cols, setcols] = useState<any>("");
   const [rows, setrows] = useState<any>("");
@@ -105,7 +105,7 @@ export default function AllLart1() {
 
   return (
     <div className="container-fluid mt-3">
-      {adds}
+      {/* {adds} */}
       <div className="row">
         <div className="col-md-4">
           <form className="my-form-1" onSubmit={getval} id="myio">
