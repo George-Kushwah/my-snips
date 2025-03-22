@@ -10,7 +10,7 @@ export default function Usememo() {
   };
 
   const Minus = useMemo(() => {
-    console.log("Hello");
+    console.log("Hello Memo");
     return add - 1;
   }, [add]);
 
