@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Tableprint from "./Table-print";
+import ALLLpartstart from "./ALL-Lpart-start";
 
 export default function AllLart1() {
   const [adds, setadds] = useState<any>(0);
   const [vals, setVals] = useState<any>([{ value: "" }]);
   const [cols, setcols] = useState<any>("");
   const [rows, setrows] = useState<any>("");
+  const [stars, setstars] = useState<any>(0);
   const [showTable, setshowTable] = useState<boolean>(false);
   const [list1, setList1] = useState<any>([
     { title: "item-1", checked: false },
@@ -214,6 +216,9 @@ export default function AllLart1() {
               </ul>
             </div>
           </div>
+        </div>
+        <div className="col-md-4">
+          <ALLLpartstart star={stars} setstar={setstars} />
         </div>
       </div>
     </div>
