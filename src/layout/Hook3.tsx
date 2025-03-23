@@ -13,7 +13,7 @@ const Hooks3 = ({ search }: IHookref) => {
   return useMemo(() => {
     let arr = [];
     for (let i = 0; i < 1000; i++) {
-      arr.push(<div key={i}>{search}</div>);
+      arr.push(<div key={i}>{defferdval}</div>);
     }
     return arr;
   }, [defferdval]);
