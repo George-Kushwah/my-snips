@@ -10,11 +10,11 @@ const Drop = () => {
   const { idname }: any = useParams();
   const fet: any = useLoaderData();
   const loc = useLocation();
-  const navi=useNavigate()
-  //console.log(loc)
+  const navi = useNavigate();
+  console.log(loc);
   const Clienme = () => {
-    navi("/life-cycle")
-  }
+    navi("/life-cycle");
+  };
   return (
     <>
       Hello Page Name: {idname}
@@ -22,10 +22,13 @@ const Drop = () => {
       {fet.map((item: any, ind: any) => {
         return <p key={ind}>{item.name}</p>;
       })}
-      {idname === "Drop" && <>
-        <p onClick={Clienme} style={{cursor:"pointer"}}>Link to life-cycle page</p>
-      </>}
-      
+      {idname === "Drop" && (
+        <>
+          <p onClick={Clienme} style={{ cursor: "pointer" }}>
+            Link to life-cycle page
+          </p>
+        </>
+      )}
     </>
   );
 };
