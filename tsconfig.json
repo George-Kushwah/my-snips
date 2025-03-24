@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "useDefineForClassFields": true,
     "esModuleInterop": true,
-
+    "types": ["jest", "node"],
     /* modules */
     "module": "ESNext",
     "isolatedModules": true,
@@ -17,7 +17,7 @@
 
     /* type checking */
     "strict": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true
   },
   "include": ["src", "sonarqube-scanner.js", "/**/*.ts"],

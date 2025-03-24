@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="H:\All-New-Start\React-Js\sab-kuch\src\__test__\Props-type.test.tsx">
-    <testCase name="Props page check Check the button" duration="1719"/>
+  <file path="H:\All-New-Start\React-Js\sab-kuch\src\__test__\Call-API.test.tsx">
+    <testCase name="Check Parent div" duration="325"/>
   </file>
 </testExecutions>

@@ -6,7 +6,7 @@
     "dev": "rsbuild dev",
     "build": "rsbuild build",
     "preview": "rsbuild preview",
-    "test": "jest --watchAll=false --coverage --testResultsProcessor jest-sonar-reporter -u",
+    "test": "jest",
     "sonar": "node sonarqube-scanner.js",
     "server": "tsx watch server/server.ts",
     "dev1": "concurrently \"npm run dev\" \"npm run server\""
@@ -63,7 +63,7 @@
     "roots": [
       "<rootDir>/src"
     ],
-    "collectCoverage": true,
+    "collectCoverage": false,
     "coverageReporters": [
       "json",
       "lcov",

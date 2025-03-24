@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Querygetdata } from "./../query/Queryfun";
 // import axios from "axios";
 const CallAPI = () => {
-  const { data, isFetching, error, status }: any = useQuery(Querygetdata());
+  const { data }: any = useQuery(Querygetdata());
   //   const [dat, setdat] = useState<any>([]);
   //   useEffect(() => {
   //     // const a = async () => {
@@ -23,8 +23,9 @@ const CallAPI = () => {
   //   console.log(dat);
   return (
     <>
-      <div className="container-fluid mt-2">
-        <div className="my-data">
+      <div className="container-fluid mt-2" data-testid="Mydiv">
+        <h3>All Item Here</h3>
+        <div className="my-data" data-testid="childdiv">
           {data?.products && data?.products.length > 0
             ? data?.products.map((item: any, ind: any) => (
                 <div key={ind}>
