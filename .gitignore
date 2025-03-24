@@ -7,6 +7,8 @@
 node_modules
 .sonar
 dist/
+coverage
+coverage/
 
 # IDE
 .vscode/*
