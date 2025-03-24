@@ -6,7 +6,7 @@
     "dev": "rsbuild dev",
     "build": "rsbuild build",
     "preview": "rsbuild preview",
-    "test": "jest",
+    "test": "jest --watchAll=false --coverage --testResultsProcessor jest-sonar-reporter -u",
     "sonar": "node sonarqube-scanner.js",
     "server": "tsx watch server/server.ts",
     "dev1": "concurrently \"npm run dev\" \"npm run server\""

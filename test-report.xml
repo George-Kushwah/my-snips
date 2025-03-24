@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
   <file path="H:\All-New-Start\React-Js\sab-kuch\src\__test__\Call-API.test.tsx">
-    <testCase name="Check Parent div" duration="325"/>
+    <testCase name="Check Parent div" duration="352"/>
+    <testCase name="Check Parent div" duration="116"/>
   </file>
 </testExecutions>
