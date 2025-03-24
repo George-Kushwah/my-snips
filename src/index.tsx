@@ -27,6 +27,7 @@ const Allskills = lazy(() => import("./layout/All-skills"));
 const UseMemo = lazy(() => import("./layout/Usememo"));
 const Part1 = lazy(() => import("./layout/All-Lpart-1"));
 const Api = lazy(() => import("./layout/Call-API"));
+const NewLogics = lazy(() => import("./layout/All-New-Logics"));
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -42,6 +43,7 @@ const router = createBrowserRouter(
       <Route path="Memo" element={<UseMemo />} />
       <Route path="Logic-Part-1" element={<Part1 />} />
       <Route path="apicall" element={<Api />} />
+      <Route path="Newgl" element={<NewLogics />} />
     </Route>
   )
 );

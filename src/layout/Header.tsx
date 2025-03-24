@@ -99,6 +99,14 @@ const Header = () => {
               API Call
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="Newgl"
+              className={({ isActive }) => `${isActive ? "active" : ""}`}
+            >
+              New Logics
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>
