@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { Theampro, Themecon } from "./../constext/Theme";
+import AllNewLogicProgressBar from "./All-New-Logic-Progress-Bar";
 const AllNewLogics = () => {
   //   const { dark, Toggle }: any = useContext(Themecon);
   const [vals, setvals] = useState<any>(5);
@@ -52,6 +53,9 @@ const AllNewLogics = () => {
       )
     );
   };
+  useEffect(() => {
+    setInterval(() => setPage((prev: any) => prev + 1), 100);
+  }, []);
   //   const nextcl = () => {
   //     if (items === coursel.length - 1) {
   //       setitems(0);
@@ -114,6 +118,10 @@ const AllNewLogics = () => {
                       ))
                     : ""}
                 </ul>
+              </div>
+              <div className="col-md-4">
+                <em>Progress Bar</em>
+                <AllNewLogicProgressBar vlas={page} />
               </div>
               {/* <div className="col-md-4">
                 <img src={coursel[items]?.img} className="ing-fluid"></img>

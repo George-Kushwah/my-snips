@@ -215,3 +215,21 @@ p {
   padding: 03px;
   cursor: pointer;
 }
+.lp1 {
+  width: 100%;
+  position: relative;
+  height: 35px;
+  border: 1px #000 solid;
+  @include bor(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 07px;
+  overflow: hidden;
+  .greens {
+    background: green;
+    height: 35px;
+    position: absolute;
+    left: 0;
+  }
+}
