@@ -233,3 +233,27 @@ p {
     left: 0;
   }
 }
+.sizes {
+  font-size: 25px;
+  cursor: pointer;
+}
+.watch {
+  border: 1px #000 solid;
+  @include bor(10px);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .times-1 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .times-2 {
+    margin-top: 15px;
+  }
+
+  button {
+    margin: 0px 05px;
+  }
+}

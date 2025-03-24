@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useContext } from "react";
 import { Theampro, Themecon } from "./../constext/Theme";
 import AllNewLogicProgressBar from "./All-New-Logic-Progress-Bar";
@@ -9,6 +9,10 @@ const AllNewLogics = () => {
   const [suggshow, setsuggshow] = useState<any>("");
   const total = 25;
   const [page, setPage] = useState<any>(0);
+  const [runing, setruning] = useState<boolean>(false);
+  const [elesp, setelesp] = useState<any>(0);
+  const interval = useRef<any>(null);
+  const startref: any = useRef<any>(0);
 
   const suggval: any = [
     "car",
@@ -72,6 +76,40 @@ const AllNewLogics = () => {
   //       clearInterval(id);
   //     };
   //   }, [items]);
+  useEffect(() => {
+    if (runing) {
+      interval.current = setInterval(
+        () => setelesp(Date.now() - startref.current),
+        10
+      );
+      return () => {
+        clearInterval(interval.current);
+      };
+    }
+  }, [runing]);
+  const start = () => {
+    setruning(true);
+    startref.current = Date.now() - elesp;
+  };
+  const stops = () => {
+    setruning(false);
+  };
+  const reset = () => {
+    setelesp(0);
+    setruning(false);
+  };
+  const FormatTime = () => {
+    let hour: any = Math.floor(elesp / (1000 * 60 * 60));
+    let min: any = Math.floor((elesp / (1000 * 60)) % 60);
+    let sec: any = Math.floor((elesp / 1000) % 60);
+    let mili: any = Math.floor((elesp % 1000) / 10);
+    hour = String(hour).padStart(2, "0");
+    min = String(min).padStart(2, "0");
+    sec = String(sec).padStart(2, "0");
+    mili = String(mili).padStart(2, "0");
+
+    return `${hour}:${min}:${sec}:${mili}`;
+  };
   return (
     <>
       <Theampro>
@@ -122,6 +160,35 @@ const AllNewLogics = () => {
               <div className="col-md-4">
                 <em>Progress Bar</em>
                 <AllNewLogicProgressBar vlas={page} />
+              </div>
+              <div className="col-md-4">
+                <div className="watch">
+                  <div className="times-1"> {FormatTime()}</div>
+
+                  <div className="times-2">
+                    <button
+                      type="button"
+                      onClick={start}
+                      className="btn btn-success"
+                    >
+                      Start
+                    </button>
+                    <button
+                      type="button"
+                      onClick={stops}
+                      className="btn btn-danger"
+                    >
+                      Stop
+                    </button>
+                    <button
+                      type="button"
+                      onClick={reset}
+                      className="btn btn-primary"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </div>
               </div>
               {/* <div className="col-md-4">
                 <img src={coursel[items]?.img} className="ing-fluid"></img>
