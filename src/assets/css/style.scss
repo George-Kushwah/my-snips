@@ -6,6 +6,10 @@ body {
   margin: 0;
   padding: 0;
 }
+
+@mixin bor($we) {
+  border-radius: $we;
+}
 .nav-bar {
   padding: 10px 15px;
   background-color: #283f8a;
@@ -143,5 +147,29 @@ p {
   }
   button {
     margin-right: 07px;
+  }
+}
+.my-data {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  div {
+    @include bor(07px);
+    border: 1px #000 solid;
+    width: 400px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 04px;
+    span {
+      font-weight: 700;
+    }
+    img {
+      width: 70%;
+      max-height: 120px;
+    }
   }
 }
