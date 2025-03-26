@@ -1,7 +1,11 @@
 import React, { useState, Suspense } from "react";
 const Loginotp = React.lazy(() => import("./Loginotp"));
+const Todolist = React.lazy(() => import("./Todolist"));
+const Debounce = React.lazy(() => import("./Debounce"));
 export default function Slider() {
   const [images, setimages] = useState<any>(0);
+  const [list, setlist] = useState<any>("");
+  const [querys, setquerys] = useState<any>("");
   const coursel = [
     {
       id: 1,
@@ -58,6 +62,20 @@ export default function Slider() {
             </div>
             <div className="col-md-4">
               <Loginotp />
+            </div>
+            <div className="col-md-4">
+              <em>My Todo List</em>
+              <Todolist list={list} setlist={setlist} />
+            </div>
+            <div className="col-md-4">
+              <em>My Debounce</em>
+              <input
+                type="text"
+                className="form-control"
+                onChange={(e) => setquerys(e.target.value)}
+                placeholder="Type Here"
+              ></input>
+              <Debounce querys={querys} />
             </div>
           </div>
         </div>

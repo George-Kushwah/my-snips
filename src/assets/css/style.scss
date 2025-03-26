@@ -276,3 +276,55 @@ p {
     }
   }
 }
+.todo {
+  button {
+    padding: 05px 12px !important;
+    margin: 5px 06px 0 !important;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  input {
+    height: 32px;
+  }
+  .todo-bg {
+    background: #b4c8e0;
+    border: 1px #73859c solid;
+    margin-top: 07px;
+
+    .lists {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 03px;
+      .btns {
+        text-align: right;
+        width: 50%;
+        button {
+          padding: 05px 12px !important;
+          margin: 0px 06px !important;
+          font-size: 12px;
+          font-weight: 700;
+          &:nth-child(2) {
+            margin: 0px !important;
+          }
+        }
+      }
+    }
+  }
+  .bgg {
+    background: #fff;
+    padding: 03px 06px;
+  }
+}
+.darks {
+  background: #4b7beb !important;
+  padding: 06px 10px !important;
+  top: 07px !important;
+  a {
+    color: #000 !important;
+    font-size: 14px;
+    &:hover {
+      color: #fff !important;
+    }
+  }
+}

@@ -11,7 +11,7 @@ const AllNewLogics = () => {
   const [page, setPage] = useState<any>(0);
   const [runing, setruning] = useState<boolean>(false);
   const [elesp, setelesp] = useState<any>(0);
-  const interval = useRef<any>(null);
+  const intervalref = useRef<any>(null);
   const startref: any = useRef<any>(0);
 
   const suggval: any = [
@@ -78,12 +78,12 @@ const AllNewLogics = () => {
   //   }, [items]);
   useEffect(() => {
     if (runing) {
-      interval.current = setInterval(
+      intervalref.current = setInterval(
         () => setelesp(Date.now() - startref.current),
         10
       );
       return () => {
-        clearInterval(interval.current);
+        clearInterval(intervalref.current);
       };
     }
   }, [runing]);

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const Menu: any = ["Action", "Drop"];
+  const Logics: any = ["Green-Light"];
   return (
     <div className="container-fluid p-0">
       <div className="nav-bar">
@@ -114,6 +115,31 @@ const Header = () => {
             >
               New Logics-2
             </NavLink>
+          </li>
+          <li
+            className="dropdown"
+            role="button"
+            id="dropdownMenuLink"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            All-Logis
+            <div className="dropdown-menu darks">
+              {Logics.map((item: any, ind: any) => {
+                return (
+                  <li key={ind}>
+                    <NavLink
+                      to={`New-Logics/${item}`}
+                      className={({ isActive }) =>
+                        `${isActive ? "active" : ""}`
+                      }
+                    >
+                      {item}
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </div>
           </li>
         </ul>
       </div>
