@@ -104,7 +104,15 @@ const Header = () => {
               to="Newgl"
               className={({ isActive }) => `${isActive ? "active" : ""}`}
             >
-              New Logics
+              New Logics-1
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="Newgl-2"
+              className={({ isActive }) => `${isActive ? "active" : ""}`}
+            >
+              New Logics-2
             </NavLink>
           </li>
         </ul>

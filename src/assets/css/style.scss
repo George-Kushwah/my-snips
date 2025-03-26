@@ -257,3 +257,22 @@ p {
     margin: 0px 05px;
   }
 }
+.sli-img {
+  width: 250px;
+  height: 250px;
+}
+.text-in {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin: 0px auto;
+  input {
+    width: 70px;
+    height: 60px;
+    text-align: center;
+    font-size: 18px;
+    &:focus {
+      border: 3px red solid !important;
+    }
+  }
+}
