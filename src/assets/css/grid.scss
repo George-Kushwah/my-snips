@@ -1,0 +1,54 @@
+.grids {
+  border: 1px rgba(#000, 0.1) solid;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .wd {
+    width: 238px;
+    height: 200px;
+    border: 1px #000 solid;
+    margin: 3px;
+    cursor: pointer;
+  }
+  .color-org {
+    background: #0bd3d6;
+  }
+  .color-fade {
+    background: #089799;
+  }
+}
+.Greens {
+  background: greenyellow !important;
+}
+.head {
+  background: #0bd3d6;
+  text-align: center;
+  font-size: 18x;
+  font-weight: 700;
+  padding: 10px;
+}
+.data {
+  background: #089799;
+  text-align: center;
+  font-size: 12x;
+  padding: 10px;
+}
+.showse {
+  display: inherit;
+}
+.hidde {
+  display: inherit;
+}
+.notes {
+  background: #f2ecaa;
+  padding: 10px;
+  border: 1px #000 solid;
+  width: 250px;
+  height: 90px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: move;
+  user-select: none;
+}

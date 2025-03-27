@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const Menu: any = ["Action", "Drop"];
-  const Logics: any = ["Green-Light"];
+  const Logics: any = ["Green-Light", "Accodotion", "Dragdrop"];
+  const [drop, setdrop] = React.useState<boolean>(false);
   return (
     <div className="container-fluid p-0">
       <div className="nav-bar">
@@ -117,18 +118,18 @@ const Header = () => {
             </NavLink>
           </li>
           <li
-            className="dropdown"
-            role="button"
-            id="dropdownMenuLink"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
+            className={`dropdown idse ${drop ? "active" : ""}`}
+            onClick={() => setdrop(!false)}
           >
             All-Logis
-            <div className="dropdown-menu darks">
+          </li>
+          {drop && (
+            <div className="drops1">
               {Logics.map((item: any, ind: any) => {
                 return (
                   <li key={ind}>
                     <NavLink
+                      onClick={() => setdrop(false)}
                       to={`New-Logics/${item}`}
                       className={({ isActive }) =>
                         `${isActive ? "active" : ""}`
@@ -140,7 +141,7 @@ const Header = () => {
                 );
               })}
             </div>
-          </li>
+          )}
         </ul>
       </div>
     </div>

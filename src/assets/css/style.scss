@@ -316,13 +316,26 @@ p {
     padding: 03px 06px;
   }
 }
-.darks {
+
+.idse {
+  cursor: pointer;
+  position: relative;
+}
+
+.drops1 {
+  position: absolute;
+  width: 200px;
   background: #4b7beb !important;
-  padding: 06px 10px !important;
-  top: 07px !important;
+  padding: 06px 03px !important;
+  top: 40px !important;
+  right: 222px;
+  li {
+    margin-bottom: 07px !important;
+  }
   a {
     color: #000 !important;
     font-size: 14px;
+
     &:hover {
       color: #fff !important;
     }
