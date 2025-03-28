@@ -24,7 +24,6 @@ const Greenlight = () => {
   const ClickOrder = (ind: any) => {
     const newordr = [...green, ind];
     setgreen(newordr);
-    console.log(newordr);
     if (newordr.length === grid.flat(1).filter(Boolean).length) {
       Deactivate();
     }
