@@ -5,6 +5,7 @@ const Greenlight = React.lazy(() => import("./Green-light"));
 const Accodotion = React.lazy(() => import("./Accodotion"));
 const Dragdrop = React.lazy(() => import("./Drag-drop"));
 const Weather = React.lazy(() => import("./Weather"));
+const Addcounter = React.lazy(() => import("./Addcounter"));
 
 const MainLogix = () => {
   const { Logics } = useParams();
@@ -32,6 +33,7 @@ const MainLogix = () => {
                 <Dragdrop note={note} setnote={setnotes} />
               )}
               {Logics === "Weather" && <Weather />}
+              {Logics === "Addcounter" && <Addcounter />}
             </div>
           </div>
         </div>

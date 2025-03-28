@@ -3,7 +3,13 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const Menu: any = ["Action", "Drop"];
-  const Logics: any = ["Green-Light", "Accodotion", "Dragdrop", "Weather"];
+  const Logics: any = [
+    "Green-Light",
+    "Accodotion",
+    "Dragdrop",
+    "Weather",
+    "Addcounter",
+  ];
   const [drop, setdrop] = React.useState<boolean>(false);
   return (
     <div className="container-fluid p-0">

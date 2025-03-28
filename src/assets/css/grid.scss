@@ -91,3 +91,14 @@
     }
   }
 }
+.counter {
+  flex-direction: column;
+  div {
+    width: auto;
+    margin: 0px auto;
+  }
+  button {
+    margin: 0px 05px;
+    font-weight: 700;
+  }
+}
