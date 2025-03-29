@@ -342,3 +342,38 @@ p {
     }
   }
 }
+.loadf {
+  font-size: 18px;
+}
+.page-fr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 25px 0;
+  .page-1 {
+    border: 0px #000 solid;
+    border-radius: 07px;
+    display: flex;
+    .num {
+      padding: 0px 07px;
+      border: 1px #000 solid;
+      margin: 0 03px;
+      cursor: pointer;
+    }
+    .bgs {
+      background: #283f8a;
+      color: #fff;
+    }
+  }
+  button {
+    background: #4b7beb;
+    border: 0px;
+    color: #fff;
+    font-weight: 700;
+    &:disabled {
+      background: rgba(#4b7beb, 0.7);
+    }
+  }
+}
