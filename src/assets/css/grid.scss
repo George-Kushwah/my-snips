@@ -102,3 +102,28 @@
     font-weight: 700;
   }
 }
+
+.fl-gap {
+  width: auto;
+  .fl-gap1 {
+    width: auto;
+    margin-left: 25px;
+    display: inherit;
+  }
+  .fl-gap3 {
+    width: auto;
+    background-color: #ccc;
+    margin: 05px 02px;
+    padding: 3px;
+  }
+  .fl-gap2 {
+    display: none;
+  }
+  .ads {
+    margin: 05px 0px 05px 10px;
+  }
+  button {
+    border: 1px rgba(#000, 0.5) solid;
+    margin: 0 05px;
+  }
+}

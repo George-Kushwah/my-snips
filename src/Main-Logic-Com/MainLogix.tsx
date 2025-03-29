@@ -1,14 +1,19 @@
 import React, { Suspense, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./../assets/css/grid.scss";
+import Nestedexplorer from "./NestedData";
+import Treemain from "./Treemain";
 const Greenlight = React.lazy(() => import("./Green-light"));
 const Accodotion = React.lazy(() => import("./Accodotion"));
 const Dragdrop = React.lazy(() => import("./Drag-drop"));
 const Weather = React.lazy(() => import("./Weather"));
 const Addcounter = React.lazy(() => import("./Addcounter"));
+const Nestedfile = React.lazy(() => import("./Nestedfile"));
 
 const MainLogix = () => {
+  const { Addon } = Treemain();
   const { Logics } = useParams();
+  const [files, setfiles] = useState<any>(Nestedexplorer);
   const [note, setnotes] = useState<any>([
     {
       id: 1,
@@ -19,6 +24,10 @@ const MainLogix = () => {
       note: "lorem spunsdsd-2",
     },
   ]);
+  const HandleInsert = (folderid: any, item: any, isFolder: any) => {
+    const final = Addon(files, folderid, item, isFolder);
+    setfiles(final);
+  };
   return (
     <>
       <Suspense fallback={<>Loading.....</>}>
@@ -34,6 +43,11 @@ const MainLogix = () => {
               )}
               {Logics === "Weather" && <Weather />}
               {Logics === "Addcounter" && <Addcounter />}
+              <div className="col-lg-4">
+                {Logics === "Nestedfile" && (
+                  <Nestedfile files={files} HandleInsert={HandleInsert} />
+                )}
+              </div>
             </div>
           </div>
         </div>
