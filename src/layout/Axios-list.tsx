@@ -25,7 +25,7 @@ const CustomAxios = (url: any) => {
     }
   );
   Instance.interceptors.response.use(
-    (response) => {
+    async (response) => {
       let ids = document.getElementById("loading");
       if (ids) {
         ids.classList.add("shows");
@@ -33,6 +33,7 @@ const CustomAxios = (url: any) => {
       }
       //Object.assign(response, { data: { list: { data: response.data } } })
       //  console.log(response)
+      await wait(100);
       return response;
     },
     (error) => {
@@ -46,4 +47,7 @@ const CustomAxios = (url: any) => {
   );
   return Instance;
 };
+function wait(delay: any) {
+  return new Promise((res) => setTimeout(res, delay));
+}
 export default CustomAxios;

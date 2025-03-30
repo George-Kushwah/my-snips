@@ -153,7 +153,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  div {
+  .kgf-1 {
     @include bor(07px);
     border: 1px #000 solid;
     width: 400px;
@@ -344,6 +344,7 @@ p {
 }
 .loadf {
   font-size: 18px;
+  display: none !important;
 }
 .page-fr {
   display: flex;
@@ -375,5 +376,28 @@ p {
     &:disabled {
       background: rgba(#4b7beb, 0.7);
     }
+  }
+}
+.bgd {
+  background: #fff;
+}
+.skecl {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .cab {
+    width: 400px;
+    height: 300px;
+    margin: 4px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px #000 solid;
+    border-radius: 7px;
+  }
+  .centers {
+    width: auto;
+    margin: 0px auto 15px auto;
   }
 }
