@@ -7,12 +7,12 @@ import "react-loading-skeleton/dist/skeleton.css";
 const Cardskeleton = React.lazy(() => import("./Card-skeleton"));
 // import axios from "axios";
 const CallAPI = () => {
-  const { data, isFetching }: any = useQuery(Querygetdata());
+  const { data, isFetching, isLoading }: any = useQuery(Querygetdata());
   const [dat, setdat] = useState<any>([]);
   const [page, setpage] = useState<any>(10);
   const [pagetotal, setpagetotal] = useState<any>(0);
   const [userpage, setuserpage] = useState<any>(0);
-
+  console.log(isLoading);
   useEffect(() => {
     if (data && Object.keys(data).length > 0) {
       Pagination(page, data?.products, setpagetotal, userpage, setdat);
