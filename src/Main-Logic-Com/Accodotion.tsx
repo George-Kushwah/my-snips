@@ -6,22 +6,22 @@ const Accodotion = () => {
     {
       heads: "Heading--1",
       datas:
-        "Multi-layered client-server neural-netMulti-layered client-server neural-netMulti-layered client-server neural-netMulti-layered client-server neural-netMulti-layered client-server neural-net",
+        "-1-Multi-layered client-server neural-netMulti-layered client-server neural-netMulti-layered client-server neural-netMulti-layered client-server neural-netMulti-layered client-server neural-net",
     },
     {
       heads: "Heading--2",
       datas:
-        "Multi-Multi-layered client-server neural-netMulti-layered client-server neural-netMulti-layered client-server neural-netlayered client-server neural-net",
+        "2-Multi-Multi-layered client-server neural-netMulti-layered client-server neural-netMulti-layered client-server neural-netlayered client-server neural-net",
     },
     {
       heads: "Heading--3",
       datas:
-        "Multi-layereMulti-layered client-server neural-netMulti-layered client-server neural-netd client-server neural-net",
+        "3-Multi-layereMulti-layered client-server neural-netMulti-layered client-server neural-netd client-server neural-net",
     },
     {
       heads: "Heading--4",
       datas:
-        "Multi-layereMulti-layered client-server neural-netMulti-layered client-server neural-netd client-server neural-net",
+        "4-Multi-layereMulti-layered client-server neural-netMulti-layered client-server neural-netd client-server neural-net",
     },
   ];
 
