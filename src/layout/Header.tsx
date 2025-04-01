@@ -11,6 +11,7 @@ const Header = () => {
     "Addcounter",
     "Nestedfile",
     "Traffic",
+    "Table-Pop",
   ];
   const [drop, setdrop] = React.useState<boolean>(false);
   return (

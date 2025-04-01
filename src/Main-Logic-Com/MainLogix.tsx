@@ -10,6 +10,7 @@ const Weather = React.lazy(() => import("./Weather"));
 const Addcounter = React.lazy(() => import("./Addcounter"));
 const Nestedfile = React.lazy(() => import("./Nestedfile"));
 const Traffic = React.lazy(() => import("./Traffic"));
+const Table = React.lazy(() => import("./Tables"));
 
 const MainLogix = () => {
   const { Addon } = Treemain();
@@ -50,6 +51,7 @@ const MainLogix = () => {
                 )}
               </div>
               {Logics === "Traffic" && <Traffic />}
+              {Logics === "Table-Pop" && <Table />}
             </div>
           </div>
         </div>
