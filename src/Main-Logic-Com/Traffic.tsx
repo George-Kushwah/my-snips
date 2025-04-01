@@ -84,6 +84,11 @@ const Traffic = () => {
     }
   };
 
+  const AllIten = () => {
+    setrightbox(Leftbox);
+    setLeftbox([]);
+  };
+
   return (
     <>
       <div className="trafiic-bg">
@@ -122,6 +127,13 @@ const Traffic = () => {
               onClick={() => Torightbox("left")}
             >
               left
+            </button>
+            <button
+              type="button"
+              className="btn btn-light"
+              onClick={() => AllIten()}
+            >
+              Alll
             </button>
           </div>
           <div className="col-lg-3 greds">
