@@ -3,6 +3,11 @@ import React, { useState, useRef, useEffect, useCallback } from "react";
 const Addcounter = () => {
   const [vals, setvals] = useState<any>(0);
   const refs = useRef<any>(null);
+  const [ab, setab] = useState<any>([1, 2, 3]);
+
+  // useEffect(() => {
+  //   setab(ab + 1);
+  // });
 
   const SetValue = (ev: any) => {
     if (refs.current) {
@@ -39,10 +44,21 @@ const Addcounter = () => {
     refs.current = null;
   };
 
+  const clickMe = () => {
+    //ab.push(4);
+  };
+
   return (
     <div className="container wea-hei d-flex justify-content-center align-items-center">
       <div className="col-lg-5 counter justify-content-center d-flex">
         <h5 className="text-center">My Counter</h5>
+        {ab.map((ien: any, ind: any) => (
+          <div key={ind}>{ien}</div>
+        ))}
+        <br></br>
+        <button type="button" onClick={clickMe}>
+          Click
+        </button>
         <div>
           <button
             type="button"
