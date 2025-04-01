@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useId } from "react";
+const Customdrop = React.lazy(() => import("./Customdrop"));
 
 const Traffic = () => {
+  const ids = useId();
   const [light, setlight] = useState<any>("red");
   const [Leftbox, setLeftbox] = useState<any>([
     {
@@ -21,6 +23,7 @@ const Traffic = () => {
     },
   ]);
   const [rightbox, setrightbox] = useState<any>([]);
+  const [selitem, setselitem] = useState<any>("");
   const trafficstate: any = {
     red: {
       duration: 3000,
@@ -38,6 +41,20 @@ const Traffic = () => {
       next: "red",
     },
   };
+  const [drop, setdrop] = useState<any>([
+    {
+      name: "Agra",
+      value: "Agra",
+    },
+    {
+      name: "Noida",
+      value: "Noida",
+    },
+    {
+      name: "Delhi",
+      value: "Delhi",
+    },
+  ]);
   useEffect(() => {
     const { duration, next } = trafficstate[light];
     const id = setTimeout(() => {
@@ -88,7 +105,9 @@ const Traffic = () => {
     setrightbox(Leftbox);
     setLeftbox([]);
   };
-
+  const Changesitem = (ev: any) => {
+    setselitem(ev.target.value);
+  };
   return (
     <>
       <div className="trafiic-bg">
@@ -148,6 +167,15 @@ const Traffic = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="col-lg-3">
+        <Customdrop
+          value={drop}
+          data={selitem}
+          classes={"form-control"}
+          id={ids}
+          setvalue={(e) => Changesitem(e)}
+        />
       </div>
     </>
   );
