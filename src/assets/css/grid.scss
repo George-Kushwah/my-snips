@@ -127,3 +127,38 @@
     margin: 0 05px;
   }
 }
+.trafiic-bg {
+  background: #474745;
+  padding: 10px;
+  width: 100px;
+  height: auto;
+  border-radius: 07px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  .circle {
+    border-radius: 100%;
+    background: #787873;
+    width: 60px;
+    height: 60px;
+    margin: 10px auto;
+  }
+}
+.greds {
+  border: 1px #000 solid;
+  border-radius: 07px;
+  padding: 15px;
+  .sel {
+    cursor: pointer;
+    background: #0bd3d6;
+    color: #000;
+    border: 1px #000 solid;
+    border-radius: 07px;
+    margin: 03px 0;
+    padding: 5px;
+  }
+  .sel1 {
+    background: #000;
+    color: #fff;
+  }
+}

@@ -10,6 +10,7 @@ const Header = () => {
     "Weather",
     "Addcounter",
     "Nestedfile",
+    "Traffic",
   ];
   const [drop, setdrop] = React.useState<boolean>(false);
   return (

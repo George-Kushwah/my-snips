@@ -9,6 +9,7 @@ const Dragdrop = React.lazy(() => import("./Drag-drop"));
 const Weather = React.lazy(() => import("./Weather"));
 const Addcounter = React.lazy(() => import("./Addcounter"));
 const Nestedfile = React.lazy(() => import("./Nestedfile"));
+const Traffic = React.lazy(() => import("./Traffic"));
 
 const MainLogix = () => {
   const { Addon } = Treemain();
@@ -48,6 +49,7 @@ const MainLogix = () => {
                   <Nestedfile files={files} HandleInsert={HandleInsert} />
                 )}
               </div>
+              {Logics === "Traffic" && <Traffic />}
             </div>
           </div>
         </div>
