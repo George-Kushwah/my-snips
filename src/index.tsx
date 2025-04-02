@@ -15,6 +15,7 @@ import { Provider } from "react-redux";
 import { store } from "./Redux/Store";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Datas } from "./layout/Drops1-query";
+import ProtectRout from "./layout/ProtectRout";
 const Drop = lazy(() => import("./layout/Drop"));
 const App = lazy(() => import("./App"));
 const Lifecycle = lazy(() => import("./layout/Life-cycle"));
@@ -31,25 +32,28 @@ const NewLogics = lazy(() => import("./layout/All-New-Logics"));
 const NewLogics2 = lazy(() => import("./Img-slider/Slider"));
 const MainLogix = lazy(() => import("./Main-Logic-Com/MainLogix"));
 const Deep = lazy(() => import("./Deep/Main"));
+// const ProtectRout = lazy(() => import("./Deep/Main"));
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path="Home" element={<Home />} />
-      <Route path="life-cycle" element={<Lifecycle />} />
-      <Route path="hoc" element={<Hoc />} />
-      <Route path="hooks" element={<Hooks />} />
-      <Route path="props" element={<Propstypes />} />
-      <Route path="User/:idname" loader={Datas} element={<Drop />} />
-      <Route path="New-tech" element={<Allth />} />
-      <Route path="New-skills" element={<Allskills />} />
-      <Route path="Memo" element={<UseMemo />} />
-      <Route path="Logic-Part-1" element={<Part1 />} />
-      <Route path="apicall" element={<Api />} />
-      <Route path="Newgl" element={<NewLogics />} />
-      <Route path="Newgl-2" element={<NewLogics2 />} />
-      <Route path="New-Logics/:Logics" element={<MainLogix />} />
-      <Route path="Deep/:id" element={<Deep />} />
+      <Route element={<ProtectRout />}>
+        <Route path="Home" element={<Home />} />
+        <Route path="life-cycle" element={<Lifecycle />} />
+        <Route path="hoc" element={<Hoc />} />
+        <Route path="hooks" element={<Hooks />} />
+        <Route path="props" element={<Propstypes />} />
+        <Route path="User/:idname" loader={Datas} element={<Drop />} />
+        <Route path="New-tech" element={<Allth />} />
+        <Route path="New-skills" element={<Allskills />} />
+        <Route path="Memo" element={<UseMemo />} />
+        <Route path="Logic-Part-1" element={<Part1 />} />
+        <Route path="apicall" element={<Api />} />
+        <Route path="Newgl" element={<NewLogics />} />
+        <Route path="Newgl-2" element={<NewLogics2 />} />
+        <Route path="New-Logics/:Logics" element={<MainLogix />} />
+        <Route path="Deep/:id" element={<Deep />} />
+      </Route>
     </Route>
   )
 );
