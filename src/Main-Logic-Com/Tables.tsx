@@ -1,6 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Tables = () => {
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    const a1 = await fetch("https://jsonplaceholder.typicode.com/users");
+    const a2 = await a1.json();
+    console.log(a2);
+    //setData(a2.data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   const [dat, setdat] = useState<any>([
     {
       id: 0,

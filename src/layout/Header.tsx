@@ -13,7 +13,9 @@ const Header = () => {
     "Traffic",
     "Table-Pop",
   ];
+  const deep: any = ["Nested"];
   const [drop, setdrop] = React.useState<boolean>(false);
+  const [drop2, setdrop2] = React.useState<boolean>(false);
   return (
     <div className="container-fluid p-0">
       <div className="nav-bar">
@@ -140,6 +142,31 @@ const Header = () => {
                     <NavLink
                       onClick={() => setdrop(false)}
                       to={`New-Logics/${item}`}
+                      className={({ isActive }) =>
+                        `${isActive ? "active" : ""}`
+                      }
+                    >
+                      {item}
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </div>
+          )}
+          <li
+            className={`dropdown idse ${drop ? "active" : ""}`}
+            onClick={() => setdrop2(!false)}
+          >
+            All-Deep
+          </li>
+          {drop2 && (
+            <div className="drops1">
+              {deep.map((item: any, ind: any) => {
+                return (
+                  <li key={ind}>
+                    <NavLink
+                      onClick={() => setdrop2(false)}
+                      to={`Deep/${item}`}
                       className={({ isActive }) =>
                         `${isActive ? "active" : ""}`
                       }

@@ -30,6 +30,7 @@ const Api = lazy(() => import("./layout/Call-API"));
 const NewLogics = lazy(() => import("./layout/All-New-Logics"));
 const NewLogics2 = lazy(() => import("./Img-slider/Slider"));
 const MainLogix = lazy(() => import("./Main-Logic-Com/MainLogix"));
+const Deep = lazy(() => import("./Deep/Main"));
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,6 +49,7 @@ const router = createBrowserRouter(
       <Route path="Newgl" element={<NewLogics />} />
       <Route path="Newgl-2" element={<NewLogics2 />} />
       <Route path="New-Logics/:Logics" element={<MainLogix />} />
+      <Route path="Deep/:id" element={<Deep />} />
     </Route>
   )
 );
