@@ -19,7 +19,7 @@ const Nestedcom = ({ comment, deletew, handlecomment }: ICooprops) => {
     handlecomment(comment.id, newcom);
     setreplys(false);
   };
-
+  console.log(Date.now());
   return (
     <div>
       <div className="nestd">

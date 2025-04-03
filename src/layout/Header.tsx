@@ -13,7 +13,7 @@ const Header = () => {
     "Traffic",
     "Table-Pop",
   ];
-  const deep: any = ["Nested"];
+  const deep: any = ["Nested", "All-type"];
   const [drop, setdrop] = React.useState<boolean>(false);
   const [drop2, setdrop2] = React.useState<boolean>(false);
   return (
