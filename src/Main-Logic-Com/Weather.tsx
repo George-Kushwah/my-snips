@@ -9,7 +9,7 @@ const Weather = () => {
   const [offy, setoffy] = useState<any>(0);
   const GetDeatilsapp = () => {
     let axios = CustomAxios("http://localhost:3000/");
-    let data = axios
+    axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${"658dc4aa2f9372400dcbfa043201661d"}`
       )
