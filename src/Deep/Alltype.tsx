@@ -5,6 +5,9 @@ interface IinputProps {
 }
 
 const inial = 0;
+const frm = {
+  names: "",
+};
 const reducer = (state: any, action: any) => {
   switch (action) {
     case "inrr":
@@ -15,9 +18,24 @@ const reducer = (state: any, action: any) => {
       return state;
   }
 };
+const reducerfr = (state: any, action: any) => {
+  switch (action) {
+    case "check":
+      return { ...state, names: "Ssfsds" };
+    default:
+      return { ...state, names: "fdfdfd" };
+  }
+};
 
 const Alltype = ({ refs }: IinputProps) => {
   const [count, dispatch] = useReducer(reducer, inial);
+  const [form, setform] = useState<any>(frm);
+  const [frd, dis1] = useReducer(reducerfr, frm);
+
+  const Handlechange = (ec: any) => {
+    setform({ ...form, names: ec.target.value });
+  };
+  console.log(frd);
   return (
     <>
       <div className="col-lg-3">
@@ -35,6 +53,19 @@ const Alltype = ({ refs }: IinputProps) => {
         <button
           type="button"
           onClick={() => dispatch("dec")}
+          className="btn btn-dark"
+        >
+          Decrement
+        </button>
+        <br></br>
+        <input
+          type="text"
+          value={form?.names}
+          onChange={(e) => Handlechange(e)}
+        ></input>
+        <button
+          type="button"
+          onClick={() => dis1("check")}
           className="btn btn-dark"
         >
           Decrement
