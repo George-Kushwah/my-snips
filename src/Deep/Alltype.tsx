@@ -3,18 +3,20 @@ import React, { useState, useReducer } from "react";
 interface IinputProps {
   refs: any;
 }
+
+const inial = 0;
+const reducer = (state: any, action: any) => {
+  switch (action) {
+    case "inrr":
+      return state + 1;
+    case "dec":
+      return state - 1;
+    default:
+      return state;
+  }
+};
+
 const Alltype = ({ refs }: IinputProps) => {
-  const inial = 0;
-  const reducer = (state: any, action: any) => {
-    switch (action) {
-      case "inrr":
-        return state + 1;
-      case "dec":
-        return state - 1;
-      default:
-        return state;
-    }
-  };
   const [count, dispatch] = useReducer(reducer, inial);
   return (
     <>
