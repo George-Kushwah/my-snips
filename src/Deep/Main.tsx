@@ -1,8 +1,11 @@
 import React, { Suspense, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import * as actions from "./../Redux/Reduer";
 import { dat } from "./data";
 import "./../assets/css/grid.scss";
 import Cshook from "./Cshook";
+import { RootState } from "../Redux/Store";
 const Nestedcom = React.lazy(() => import("./Nestedcom"));
 const Alltype = React.lazy(() => import("./Alltype"));
 const Main = () => {
@@ -10,6 +13,7 @@ const Main = () => {
   const { addcomment, deletes } = Cshook();
   const { id } = useParams();
   const [data, setdata] = useState<any>(dat);
+  const dispatch = useDispatch();
   const checkref = () => {
     inputref.current.value = "Hello";
     inputref.current.focus();
@@ -24,8 +28,15 @@ const Main = () => {
     const update = deletes(data, id);
     setdata(update);
   };
+  const SenData = () => {
+    let dc: any = { age: 25 };
+    dispatch(actions.sharedataload(dc));
+  };
   return (
     <>
+      <button type="button" onClick={SenData} className="btn btn-danger">
+        Send Data to Parent
+      </button>
       <Suspense fallback={<>Loading.....</>}>
         <div className="container-fluid mt-3">
           <div className="row">
@@ -52,8 +63,20 @@ const Main = () => {
             )}
           </div>
         </div>
+        <Parent2 />
       </Suspense>
     </>
   );
 };
 export default Main;
+
+const Parent2 = () => {
+  const { shareData }: any = useSelector((state: RootState) => state.testdata);
+  return (
+    <>
+      <div className="container-fluid">
+        Hello Parent age is {shareData?.age}
+      </div>
+    </>
+  );
+};

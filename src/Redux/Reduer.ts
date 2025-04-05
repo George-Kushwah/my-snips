@@ -9,6 +9,7 @@ export interface Apidata {
   dbtestsucc: any[];
   dbinsertDataload: boolean;
   dbinsertDatasucc: any[];
+  shareData: any[];
 }
 const initialState: Apidata = {
   err: "",
@@ -18,6 +19,7 @@ const initialState: Apidata = {
   dbtestsucc: [],
   dbinsertDataload: false,
   dbinsertDatasucc: [],
+  shareData: [],
 };
 
 export const myReucerdata = createSlice({
@@ -51,6 +53,16 @@ export const myReucerdata = createSlice({
       state.dbinsertDataload = false;
       state.dbinsertDatasucc = action.payload;
     },
+    sharedataload: (state) => {
+      console.log("1111");
+      state.dbinsertDataload = true;
+      state.shareData = [];
+    },
+    sharedatasucc: (state, action: PayloadAction<any>) => {
+      console.log("2222");
+      state.dbinsertDataload = false;
+      state.shareData = action.payload;
+    },
   },
 });
 export const {
@@ -61,5 +73,7 @@ export const {
   dbtestsucc,
   dbinsertload,
   dbinsertsucc,
+  sharedataload,
+  sharedatasucc,
 } = myReucerdata.actions;
 export default myReucerdata.reducer;
