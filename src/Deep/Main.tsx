@@ -13,6 +13,7 @@ const Main = () => {
   const { addcomment, deletes } = Cshook();
   const { id } = useParams();
   const [data, setdata] = useState<any>(dat);
+  const [nums, setnums] = useState<any>(0);
   const dispatch = useDispatch();
   const checkref = () => {
     inputref.current.value = "Hello";
@@ -32,11 +33,16 @@ const Main = () => {
     let dc: any = { age: 25 };
     dispatch(actions.sharedataload(dc));
   };
+  const count = (ec: any) => {
+    setnums(ec);
+  };
   return (
     <>
       <button type="button" onClick={SenData} className="btn btn-danger">
         Send Data to Parent
       </button>
+      <br></br>
+      Data from child to parent {nums}
       <Suspense fallback={<>Loading.....</>}>
         <div className="container-fluid mt-3">
           <div className="row">
@@ -58,7 +64,7 @@ const Main = () => {
                 >
                   Click Here
                 </button>
-                <Alltype refs={inputref} />
+                <Alltype counst={count} refs={inputref} />
               </>
             )}
           </div>

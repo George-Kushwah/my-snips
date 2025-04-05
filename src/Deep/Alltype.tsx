@@ -2,6 +2,7 @@ import React, { useState, useReducer } from "react";
 
 interface IinputProps {
   refs: any;
+  counst: (we: any) => void;
 }
 
 const inial = 0;
@@ -27,7 +28,7 @@ const reducerfr = (state: any, action: any) => {
   }
 };
 
-const Alltype = ({ refs }: IinputProps) => {
+const Alltype = ({ refs, counst }: IinputProps) => {
   const [count, dispatch] = useReducer(reducer, inial);
   const [form, setform] = useState<any>(frm);
   const [frd, dis1] = useReducer(reducerfr, frm);
@@ -35,6 +36,7 @@ const Alltype = ({ refs }: IinputProps) => {
   const Handlechange = (ec: any) => {
     setform({ ...form, names: ec.target.value });
   };
+
   console.log(frd);
   return (
     <>
@@ -45,14 +47,20 @@ const Alltype = ({ refs }: IinputProps) => {
         {count}
         <button
           type="button"
-          onClick={() => dispatch("inrr")}
+          onClick={() => {
+            dispatch("inrr");
+            counst(count);
+          }}
           className="btn btn-dark"
         >
           Increment
         </button>
         <button
           type="button"
-          onClick={() => dispatch("dec")}
+          onClick={() => {
+            dispatch("dec");
+            counst(count);
+          }}
           className="btn btn-dark"
         >
           Decrement
