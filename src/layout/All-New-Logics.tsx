@@ -126,9 +126,11 @@ const AllNewLogics = () => {
                   type="button"
                   className="btn btn-primary"
                   onClick={() => {
-                    setvals((prev: any) => prev + 5);
-                    setvals((prev: any) => prev + 5);
-                    setvals((prev: any) => prev + 5);
+                    setvals(vals + 10);
+                    setvals(vals + 15);
+                    // setvals((prev: any) => prev + 5);
+                    // setvals((prev: any) => prev + 5);
+                    // setvals((prev: any) => prev + 10);
                   }}
                 >
                   Click Here
