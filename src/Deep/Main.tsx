@@ -8,6 +8,7 @@ import Cshook from "./Cshook";
 import { RootState } from "../Redux/Store";
 const Nestedcom = React.lazy(() => import("./Nestedcom"));
 const Alltype = React.lazy(() => import("./Alltype"));
+const ItemSearch = React.lazy(() => import("./Item-Search"));
 const Main = () => {
   const inputref: any = useRef<HTMLInputElement>(null);
   const { addcomment, deletes } = Cshook();
@@ -38,11 +39,11 @@ const Main = () => {
   };
   return (
     <>
-      <button type="button" onClick={SenData} className="btn btn-danger">
+      {/* <button type="button" onClick={SenData} className="btn btn-danger">
         Send Data to Parent
       </button>
       <br></br>
-      Data from child to parent {nums}
+      Data from child to parent {nums} */}
       <Suspense fallback={<>Loading.....</>}>
         <div className="container-fluid mt-3">
           <div className="row">
@@ -54,6 +55,7 @@ const Main = () => {
                 deletew={deletew}
               />
             )}
+            {id === "Item-Search" && <ItemSearch />}
 
             {id == "All-type" && (
               <>
@@ -69,7 +71,7 @@ const Main = () => {
             )}
           </div>
         </div>
-        <Parent2 />
+        {/* <Parent2 /> */}
       </Suspense>
     </>
   );
