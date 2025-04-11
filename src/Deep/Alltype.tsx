@@ -1,4 +1,5 @@
-import React, { useState, useReducer } from "react";
+import React, { useState, useReducer, useEffect } from "react";
+import axios from "axios";
 
 interface IinputProps {
   refs: any;
@@ -32,6 +33,7 @@ const Alltype = ({ refs, counst }: IinputProps) => {
   const [count, dispatch] = useReducer(reducer, inial);
   const [form, setform] = useState<any>(frm);
   const [frd, dis1] = useReducer(reducerfr, frm);
+  const [mul, setmul] = useState<any>(false);
 
   const Handlechange = (ec: any) => {
     setform({ ...form, names: ec.target.value });
@@ -63,10 +65,35 @@ const Alltype = ({ refs, counst }: IinputProps) => {
     };
   };
 
+  useEffect(() => {
+    const controller = new AbortController();
+    const singal = controller.signal;
+    const fetch = async () => {
+      try {
+        let res = axios
+          .get("https://jsonplaceholder.typicode.com/users", { signal: singal })
+          .then((res) => console.log(res));
+        return res;
+      } catch (e: any) {
+        console.log(e);
+      }
+    };
+    fetch();
+    return () => {
+      controller.abort();
+    };
+  }, [mul]);
+
+  const Multipleapi = () => {
+    setmul(!mul);
+  };
   //console.log(frd);
   return (
     <>
       <div className="col-lg-3">
+        <button type="button" onClick={Multipleapi} className="btn btn-dark">
+          Multiple API call here
+        </button>
         <button
           type="button"
           onClick={testing("hi", "hello")}
