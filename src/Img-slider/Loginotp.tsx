@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
 const Loginotp = () => {
-  const [otp, setotp] = useState<any>(new Array(4).fill(""));
+  const [otp, setotp] = useState<any>(["", "", "", ""]);
   let nums = "9719148526".slice(-4);
   const refs = useRef<any>([]);
   useEffect(() => {
