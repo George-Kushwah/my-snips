@@ -37,10 +37,50 @@ const Alltype = ({ refs, counst }: IinputProps) => {
     setform({ ...form, names: ec.target.value });
   };
 
-  console.log(frd);
+  const CallAPI = async () => {
+    try {
+      let as1 = await fetch("https://jsonplaceholder.typicode.com/users");
+      let as2 = await as1.json();
+      console.log(as2);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const debon = (fn: any, time: any) => {
+    let tem: any = null;
+    return function () {
+      clearTimeout(tem);
+      tem = setTimeout(() => {
+        fn();
+      }, time);
+    };
+  };
+
+  const testing = (ed: any, ev: any) => {
+    return function () {
+      console.log(ed, ev);
+    };
+  };
+
+  //console.log(frd);
   return (
     <>
       <div className="col-lg-3">
+        <button
+          type="button"
+          onClick={testing("hi", "hello")}
+          className="btn btn-dark"
+        >
+          check pl
+        </button>
+        <button
+          type="button"
+          onClick={debon(CallAPI, 300)}
+          className="btn btn-dark"
+        >
+          Call APIp
+        </button>
         <input type="text" ref={refs} />
       </div>
       <div className="col-lg-3">

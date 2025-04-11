@@ -39,11 +39,11 @@ const Main = () => {
   };
   return (
     <>
-      {/* <button type="button" onClick={SenData} className="btn btn-danger">
+      <button type="button" onClick={SenData} className="btn btn-danger">
         Send Data to Parent
       </button>
       <br></br>
-      Data from child to parent {nums} */}
+      Data from child to parent {nums}
       <Suspense fallback={<>Loading.....</>}>
         <div className="container-fluid mt-3">
           <div className="row">
