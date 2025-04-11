@@ -20,6 +20,11 @@ const getSearhItem = async (ev: any) => {
   return a1;
 };
 
+const posData = (ed: any) => {
+  console.log(ed);
+  return { gb: "fdfd" };
+};
+
 export function Queryget() {
   return queryOptions({
     queryKey: ["mylist"],
@@ -37,5 +42,12 @@ export function SearchItems(ev: any) {
     queryKey: ["searchitems", ev],
     queryFn: () => getSearhItem(ev),
     enabled: !!ev,
+  });
+}
+export function getDatas(ev: any) {
+  return queryOptions({
+    queryKey: ["postdata"],
+    queryFn: () => posData(ev),
+    enabled: false,
   });
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
-import { SearchItems } from "./../query/Queryfun";
+import { useQueries } from "@tanstack/react-query";
+import { SearchItems, getDatas } from "./../query/Queryfun";
 import Debounce from "./Debounce";
 
 const ItemSearch = () => {
@@ -8,15 +8,18 @@ const ItemSearch = () => {
   const [fldat, setfldat] = useState<any>([]);
   const [selitem, setselitem] = useState<any>([]);
   const [selectitem, setselectitem] = useState<any>(new Set());
+  let df = { age: 12, city: "Jaipur" };
   const dc = Debounce(serachItem, 400);
-  const { data, isFetching, isLoading, refetch }: any = useQuery(
-    SearchItems(dc)
-  );
+  //data, isFetching, isLoading
+  const [gets, postq]: any = useQueries({
+    queries: [SearchItems(dc), getDatas(df)],
+  });
+
   useEffect(() => {
-    if (data !== undefined) {
-      setfldat(data?.users);
+    if (gets?.data?.users !== undefined) {
+      setfldat(gets?.data?.users);
     }
-  }, [data]);
+  }, [gets?.data]);
 
   const Handlesel = (ev: any) => {
     setselitem([...selitem, ev]);
@@ -32,53 +35,62 @@ const ItemSearch = () => {
     updatemail.delete(ev.email);
     setselectitem(updatemail);
   };
+  console.log(postq?.data);
 
   return (
-    <div className="main-search">
-      <div className="search-input">
-        {selitem &&
-          selitem.map((item: any, ind: any) => (
-            <div key={ind} className="pills" onClick={() => Hanlderemove(item)}>
-              <span>
+    <>
+      <button type="button" onClick={postq.refetch} className="btn btn-primary">
+        Hello Data
+      </button>
+      <div className="main-search">
+        <div className="search-input">
+          {selitem &&
+            selitem.map((item: any, ind: any) => (
+              <div
+                key={ind}
+                className="pills"
+                onClick={() => Hanlderemove(item)}
+              >
                 <span>
-                  {" "}
-                  <img src={item?.image}></img>
+                  <span>
+                    {" "}
+                    <img src={item?.image}></img>
+                  </span>
+                  <span>
+                    {" "}
+                    {item?.firstName} {item?.lastName} &times;
+                  </span>
                 </span>
-                <span>
-                  {" "}
-                  {item?.firstName} {item?.lastName} &times;
-                </span>
-              </span>
-            </div>
-          ))}
-        <div>
-          <input
-            type="text"
-            value={serachItem}
-            onChange={(e) => {
-              setserachItem(e.target.value);
-              refetch;
-            }}
-            placeholder="Search Item"
-          ></input>
+              </div>
+            ))}
+          <div>
+            <input
+              type="text"
+              value={serachItem}
+              onChange={(e) => {
+                setserachItem(e.target.value);
+              }}
+              placeholder="Search Item"
+            ></input>
 
-          <ul>
-            {fldat &&
-              fldat.map(
-                (item: any, ind: any) =>
-                  !selectitem.has(item?.email) && (
-                    <li key={ind} onClick={() => Handlesel(item)}>
-                      <img src={item?.image}></img>
-                      <span>
-                        {item?.firstName} {item?.lastName}
-                      </span>
-                    </li>
-                  )
-              )}
-          </ul>
+            <ul>
+              {fldat &&
+                fldat.map(
+                  (item: any, ind: any) =>
+                    !selectitem.has(item?.email) && (
+                      <li key={ind} onClick={() => Handlesel(item)}>
+                        <img src={item?.image}></img>
+                        <span>
+                          {item?.firstName} {item?.lastName}
+                        </span>
+                      </li>
+                    )
+                )}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default ItemSearch;
