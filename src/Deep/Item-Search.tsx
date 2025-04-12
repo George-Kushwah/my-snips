@@ -8,6 +8,7 @@ const ItemSearch = () => {
   const [fldat, setfldat] = useState<any>([]);
   const [selitem, setselitem] = useState<any>([]);
   const [selectitem, setselectitem] = useState<any>(new Set());
+  const [active, setactive] = useState<any>(0);
   let df = { age: 12, city: "Jaipur" };
   const dc = Debounce(serachItem, 400);
   //data, isFetching, isLoading
@@ -35,7 +36,25 @@ const ItemSearch = () => {
     updatemail.delete(ev.email);
     setselectitem(updatemail);
   };
-  console.log(postq?.data);
+
+  const UseKey = (ev: any) => {
+    if (ev.keyCode === 40) {
+      if (active < fldat.length) {
+        setactive(active + 1);
+      }
+    }
+    if (ev.keyCode === 38) {
+      if (active > -0) setactive(active - 1);
+    }
+    if (ev.key === "Enter") {
+      const update = fldat[active];
+      setselitem([...selitem, update]);
+      setselectitem(new Set([...selectitem, update?.email]));
+      setserachItem("");
+      setfldat([]);
+      setactive(0);
+    }
+  };
 
   return (
     <>
@@ -71,6 +90,7 @@ const ItemSearch = () => {
                 setserachItem(e.target.value);
               }}
               placeholder="Search Item"
+              onKeyDown={(e) => UseKey(e)}
             ></input>
 
             <ul>
@@ -78,10 +98,14 @@ const ItemSearch = () => {
                 fldat.map(
                   (item: any, ind: any) =>
                     !selectitem.has(item?.email) && (
-                      <li key={ind} onClick={() => Handlesel(item)}>
+                      <li
+                        key={ind}
+                        onClick={() => Handlesel(item)}
+                        className={active === ind ? "lis-ac" : ""}
+                      >
                         <img src={item?.image}></img>
                         <span>
-                          {item?.firstName} {item?.lastName}
+                          {ind} {item?.firstName} {item?.lastName}
                         </span>
                       </li>
                     )
