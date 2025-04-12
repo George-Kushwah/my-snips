@@ -34,6 +34,8 @@ const Alltype = ({ refs, counst }: IinputProps) => {
   const [form, setform] = useState<any>(frm);
   const [frd, dis1] = useReducer(reducerfr, frm);
   const [mul, setmul] = useState<any>(false);
+  const controller = new AbortController();
+  const singal = controller.signal;
 
   const Handlechange = (ec: any) => {
     setform({ ...form, names: ec.target.value });
@@ -66,32 +68,28 @@ const Alltype = ({ refs, counst }: IinputProps) => {
   };
 
   useEffect(() => {
-    const controller = new AbortController();
-    const singal = controller.signal;
-    const fetch = async () => {
-      try {
-        let res = axios
-          .get("https://jsonplaceholder.typicode.com/users", { signal: singal })
-          .then((res) => console.log(res));
-        return res;
-      } catch (e: any) {
-        console.log(e);
-      }
-    };
-    fetch();
+    Multipleapi();
     return () => {
       controller.abort();
     };
   }, [mul]);
 
-  const Multipleapi = () => {
-    setmul(!mul);
+  const Multipleapi = async () => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users", { signal: singal })
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
   };
+
   //console.log(frd);
   return (
     <>
       <div className="col-lg-3">
-        <button type="button" onClick={Multipleapi} className="btn btn-dark">
+        <button
+          type="button"
+          onClick={() => setmul(!mul)}
+          className="btn btn-dark"
+        >
           Multiple API call here
         </button>
         <button
