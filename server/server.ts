@@ -21,7 +21,7 @@ app.use(
 );
 const con = mysql.createConnection({
   host: "localhost",
-  user: "root",
+  user: "roots",
   password: "admin",
   database: "my-tests",
 });
