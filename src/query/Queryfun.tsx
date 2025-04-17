@@ -21,8 +21,8 @@ const getSearhItem = async (ev: any) => {
 };
 
 const posData = (ed: any) => {
-  console.log(ed);
-  return { gb: "fdfd" };
+  //console.log(ed);
+  return { gb: ed };
 };
 
 export function Queryget() {

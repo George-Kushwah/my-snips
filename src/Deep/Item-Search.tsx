@@ -53,6 +53,7 @@ const ItemSearch = () => {
       setactive(0);
     }
   };
+  //console.log(postq?.data);
   //console.log(active, selectitem);
   return (
     <>
