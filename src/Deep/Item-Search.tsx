@@ -38,13 +38,11 @@ const ItemSearch = () => {
   };
 
   const UseKey = (ev: any) => {
-    if (ev.keyCode === 40) {
-      if (active < fldat.length) {
-        setactive(active + 1);
-      }
+    if (ev.keyCode === 40 && fldat.length > 0) {
+      setactive((prev: any) => (prev < fldat.length - 1 ? prev + 1 : prev));
     }
-    if (ev.keyCode === 38) {
-      if (active > -0) setactive(active - 1);
+    if (ev.keyCode === 38 && fldat.length > 0) {
+      setactive((prev: any) => (prev > 0 ? prev - 1 : 0));
     }
     if (ev.key === "Enter") {
       const update = fldat[active];
@@ -55,7 +53,7 @@ const ItemSearch = () => {
       setactive(0);
     }
   };
-
+  //console.log(active, selectitem);
   return (
     <>
       <button type="button" onClick={postq.refetch} className="btn btn-primary">
