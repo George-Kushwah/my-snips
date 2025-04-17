@@ -71,7 +71,7 @@ const Main = () => {
             )}
           </div>
         </div>
-        {/* <Parent2 /> */}
+        <Parent2 />
       </Suspense>
     </>
   );
