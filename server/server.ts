@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import bodyPar from "body-parser";
 import mysql from "mysql";
+// import { createHandler } from "graphql-http/lib/use/http";
 
 const app = express();
 app.use(bodyPar.json());
