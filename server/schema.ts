@@ -9,7 +9,7 @@ const schemaa = buildSchema(`
 
   type Query {
     users: [User]
-    minal: [User]
+    Getdata: [User]
   }
 
 `);

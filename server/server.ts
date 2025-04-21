@@ -10,9 +10,9 @@ const schemaa = require("./schema");
 
 const root = {
   users() {
-    return [{ id: 1, name: "ssdsd" }];
+    return [{ id: 1, name: "Jhon" }];
   },
-  async minal() {
+  async Getdata() {
     return new Promise((res, rej) => {
       con.query("select * from myinput", (err: any, val: any) => {
         if (err) rej(err);
