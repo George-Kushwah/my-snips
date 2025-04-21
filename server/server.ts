@@ -1,9 +1,26 @@
-import axios from "axios";
+import http from "http";
 import express from "express";
 import cors from "cors";
 import bodyPar from "body-parser";
 import mysql from "mysql";
-// import { createHandler } from "graphql-http/lib/use/http";
+import { createHandler } from "graphql-http/lib/use/express";
+const expressPlayground =
+  require("graphql-playground-middleware-express").default;
+const schemaa = require("./schema");
+
+const root = {
+  users() {
+    return [{ id: 1, name: "ssdsd" }];
+  },
+  async minal() {
+    return new Promise((res, rej) => {
+      con.query("select * from myinput", (err: any, val: any) => {
+        if (err) rej(err);
+        res(Object.values(JSON.parse(JSON.stringify(val))));
+      });
+    });
+  },
+};
 
 const app = express();
 app.use(bodyPar.json());
@@ -20,6 +37,7 @@ app.use(
     origin: "*",
   })
 );
+
 const con = mysql.createConnection({
   host: "localhost",
   user: "roots",
@@ -31,6 +49,15 @@ con.connect(function (err: any) {
   if (err) throw err;
   console.log("Connected!");
 });
+
+app.all(
+  "/graphql",
+  createHandler({
+    schema: schemaa,
+    rootValue: root,
+  })
+);
+app.get("/myget", expressPlayground({ endpoint: "/graphql" }));
 
 app.get("/myvalue", (req: any, res: any) => {
   if (req) {
