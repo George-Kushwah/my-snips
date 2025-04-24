@@ -10,6 +10,7 @@ const schemaa = buildSchema(`
   type Query {
     users: [User]
     Getdata: [User]
+    getUser(id:ID!):User
   }
 
 `);

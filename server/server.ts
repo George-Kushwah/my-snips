@@ -20,6 +20,17 @@ const root = {
       });
     });
   },
+  async getUser(id) {
+    return new Promise((res, rej) => {
+      con.query(
+        `select * from myinput where id=${id}`,
+        (err: any, val: any) => {
+          if (err) rej(err);
+          res(Object.values(JSON.parse(JSON.stringify(val))));
+        }
+      );
+    });
+  },
 };
 
 const app = express();
