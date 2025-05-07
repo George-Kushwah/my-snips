@@ -5,7 +5,7 @@ const Styles = () => {
   const [dat, setdat] = useState<any>(0);
 
   useEffect(() => {
-    setdat(dat + 1);
+    //setdat(dat + 1);
   });
 
   return (
