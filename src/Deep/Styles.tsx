@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Sbutton } from "./../styles/Main";
 
 const Styles = () => {
+  const [dat, setdat] = useState<any>(0);
+
+  useEffect(() => {
+    setdat(dat + 1);
+  });
+
   return (
     <div>
       {/* <button type="button">Click Me</button> */}
       {/* <Sbutton>Click Me</Sbutton>
       <br />
       <Sbutton varient="outine">Click Me</Sbutton> */}
-
+      {dat}
       <form>
         <label htmlFor="ing">Name</label>
         <input
