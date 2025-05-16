@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { dat } from "../Deep/data";
 
 interface ListIprops {
   list: any;
@@ -12,9 +13,16 @@ const Todolist = ({ list, setlist }: ListIprops) => {
   const AddtodoListtem = () => {
     let item: any = [...data];
     item.push(list);
-    setdata(item);
-    let val = refs.current;
-    if (val) val.value = "";
+    const check = new Set(data);
+    if (check.has(list)) {
+      alert("Duplicate Value");
+      let val = refs.current;
+      if (val) val.value = "";
+    } else {
+      setdata(item);
+      let val = refs.current;
+      if (val) val.value = "";
+    }
   };
   const DeleteItem = (ev: any) => {
     const deletes = [...data];
