@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const Menu: any = ["Action", "Drop"];
+  const Renders: any = ["Check-1"];
   const Logics: any = [
     "Green-Light",
     "Accodotion",
@@ -16,6 +17,7 @@ const Header = () => {
   const deep: any = ["Nested", "All-type", "Item-Search", "Styles"];
   const [drop, setdrop] = React.useState<boolean>(false);
   const [drop2, setdrop2] = React.useState<boolean>(false);
+  const [drop3, setdrop3] = React.useState<boolean>(false);
   return (
     <div className="container-fluid p-0">
       <div className="nav-bar">
@@ -167,6 +169,31 @@ const Header = () => {
                     <NavLink
                       onClick={() => setdrop2(false)}
                       to={`Deep/${item}`}
+                      className={({ isActive }) =>
+                        `${isActive ? "active" : ""}`
+                      }
+                    >
+                      {item}
+                    </NavLink>
+                  </li>
+                );
+              })}
+            </div>
+          )}
+          <li
+            className={`dropdown idse ${drop ? "active" : ""}`}
+            onClick={() => setdrop3(!false)}
+          >
+            Renders
+          </li>
+          {drop3 && (
+            <div className="drops1">
+              {Renders.map((item: any, ind: any) => {
+                return (
+                  <li key={ind}>
+                    <NavLink
+                      onClick={() => setdrop2(false)}
+                      to={`Renders/${item}`}
                       className={({ isActive }) =>
                         `${isActive ? "active" : ""}`
                       }

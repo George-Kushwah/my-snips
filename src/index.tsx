@@ -32,6 +32,7 @@ const NewLogics = lazy(() => import("./layout/All-New-Logics"));
 const NewLogics2 = lazy(() => import("./Img-slider/Slider"));
 const MainLogix = lazy(() => import("./Main-Logic-Com/MainLogix"));
 const Deep = lazy(() => import("./Deep/Main"));
+const Renders = lazy(() => import("./Render/Main"));
 // const ProtectRout = lazy(() => import("./Deep/Main"));
 const queryClient = new QueryClient();
 const router = createBrowserRouter(
@@ -53,6 +54,7 @@ const router = createBrowserRouter(
         <Route path="Newgl-2" element={<NewLogics2 />} />
         <Route path="New-Logics/:Logics" element={<MainLogix />} />
         <Route path="Deep/:id" element={<Deep />} />
+        <Route path="Renders/:render" element={<Renders />} />
       </Route>
     </Route>
   )
