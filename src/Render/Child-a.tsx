@@ -5,6 +5,9 @@ const Childa = () => {
     const event = new CustomEvent("Hello", {
       detail: {
         dc: "Update Data",
+        dx: function () {
+          alert("ok");
+        },
       },
     });
     dispatchEvent(event);

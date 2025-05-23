@@ -8,6 +8,7 @@ const Main = () => {
   useEffect(() => {
     window.addEventListener("Hello", (ed: any) => {
       setData(ed.detail.dc);
+      ed.detail.dx();
     });
   }, []);
 
