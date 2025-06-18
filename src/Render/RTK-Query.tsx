@@ -2,6 +2,38 @@ import React, { useEffect } from "react";
 import { useGetByNameQuery } from "./RTKQuery/Loadapi";
 
 const RTKQuery = () => {
+  const { data, error, isLoading } = useGetByNameQuery();
+  const [datas, setdata] = React.useState<any>([]);
+  const [val, setval] = React.useState<any>("");
+  const [vals, setvals] = React.useState<any>([]);
+  useEffect(() => {
+    if (data !== undefined && Object.keys(data).length > 0) {
+      let aa = [...data?.products];
+      let aa1 = aa.sort((a: any, b: any) => a?.title.localeCompare(b?.title));
+      setdata(aa1);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (val.length > 0) {
+      let aa1 = datas.filter((item: any) =>
+        item?.title.toLowerCase().includes(val.toLowerCase())
+      );
+
+      setvals(aa1);
+    } else setvals([]);
+  }, [val]);
+
+  // useEffect(() => {
+  //   window.addEventListener("click", MouseHanler);
+  //   window.addEventListener("keypress", Types);
+  //   window.addEventListener("resize", Sizes);
+  //   return () => {
+  //     window.removeEventListener("click", MouseHanler);
+  //     window.removeEventListener("keypress", Types);
+  //     window.removeEventListener("resize", Sizes);
+  //   };
+  // });
   const MouseHanler = (ev: any) => {
     console.log("Click event", {
       x: ev.clientX,
@@ -24,20 +56,27 @@ const RTKQuery = () => {
     });
   };
 
-  useEffect(() => {
-    window.addEventListener("click", MouseHanler);
-    window.addEventListener("keypress", Types);
-    window.addEventListener("resize", Sizes);
-    return () => {
-      window.removeEventListener("click", MouseHanler);
-      window.removeEventListener("keypress", Types);
-      window.removeEventListener("resize", Sizes);
-    };
-  });
+  return (
+    <>
+      <input
+        type="text"
+        value={val}
+        onChange={(e) => setval(e.target.value)}
+      ></input>
 
-  const { data, error, isLoading } = useGetByNameQuery();
-  console.log(data);
-  return <div>fdfdfds</div>;
+      {vals &&
+        vals.map((item: any, ind: any) => (
+          <div key={ind}>
+            <p>
+              <b>Filter Item:{item?.title}</b>
+            </p>
+          </div>
+        ))}
+
+      {datas &&
+        datas.map((item: any, ind: any) => <div key={ind}>{item?.title}</div>)}
+    </>
+  );
 };
 
 export default RTKQuery;
