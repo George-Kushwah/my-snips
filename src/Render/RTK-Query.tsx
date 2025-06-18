@@ -58,11 +58,13 @@ const RTKQuery = () => {
 
   return (
     <>
-      <input
-        type="text"
-        value={val}
-        onChange={(e) => setval(e.target.value)}
-      ></input>
+      <div className="col-xl-3">
+        <input
+          type="text"
+          value={val}
+          onChange={(e) => setval(e.target.value)}
+        ></input>
+      </div>
 
       {vals &&
         vals.map((item: any, ind: any) => (
