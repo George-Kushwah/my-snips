@@ -56,6 +56,19 @@ const RTKQuery = () => {
     });
   };
 
+  const ColorCom = (ev: any) => {
+    const parts = ev.split(new RegExp(`(${val})`, "gi"));
+    return parts.map((item: any, ind: any) =>
+      item?.toLowerCase() === val.toLowerCase() ? (
+        <span style={{ color: "red" }} key={ind}>
+          {item}
+        </span>
+      ) : (
+        item
+      )
+    );
+  };
+
   return (
     <>
       <div className="col-xl-3">
@@ -70,7 +83,7 @@ const RTKQuery = () => {
         vals.map((item: any, ind: any) => (
           <div key={ind}>
             <p>
-              <b>Filter Item:{item?.title}</b>
+              <b>Filter Item:{ColorCom(item?.title)}</b>
             </p>
           </div>
         ))}
