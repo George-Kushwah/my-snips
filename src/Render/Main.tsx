@@ -2,8 +2,9 @@ import React, { Suspense, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 const Childa = React.lazy(() => import("./Child-a"));
 const Counter = React.lazy(() => import("./Counter"));
-//const RTKQuery = React.lazy(() => import("./RTK-Query"));
-import RTKQuery from "./RTK-Query";
+const RTKQuery = React.lazy(() => import("./RTK-Query"));
+const Itemsc = React.lazy(() => import("./Check-3"));
+
 const Main = () => {
   const [data, setData] = useState<any>("");
   const { render } = useParams();
@@ -24,6 +25,7 @@ const Main = () => {
             {render === "Check-1" && <Childa />}
             {render === "Check-2" && <Counter />}
             {render === "RTK-Query" && <RTKQuery />}
+            {render === "Check-3" && <Itemsc />}
           </div>
         </div>
       </Suspense>

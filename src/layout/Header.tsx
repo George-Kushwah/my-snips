@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const Menu: any = ["Action", "Drop"];
-  const Renders: any = ["Check-1", "Check-2", "RTK-Query"];
+  const Renders: any = ["Check-1", "Check-2", "RTK-Query", "Check-3"];
   const Logics: any = [
     "Green-Light",
     "Accodotion",
