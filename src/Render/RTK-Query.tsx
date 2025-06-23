@@ -17,9 +17,9 @@ const RTKQuery = () => {
   useEffect(() => {
     if (val.length > 0) {
       let aa1 = datas.filter((item: any) =>
-        item?.title.toLowerCase().includes(val.toLowerCase())
+        item?.stock.toString().includes(val.toLowerCase())
       );
-
+      console.log(aa1);
       setvals(aa1);
     } else setvals([]);
   }, [val]);
