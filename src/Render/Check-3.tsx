@@ -18,7 +18,7 @@ const Checks = () => {
       let med = setTimeout(() => {
         setmess(false);
       }, 1000);
-      settemid(med);
+      setmtemid(med);
     }, 2000);
     settemid(ids);
   };
